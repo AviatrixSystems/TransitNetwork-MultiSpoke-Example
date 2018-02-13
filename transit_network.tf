@@ -1,8 +1,9 @@
-# Sample Aviatrix terraform configuration to create complete transit VPC solution
-# This configuration creates a cloud account on Aviatrix controller, launches transit VPC, creates VGW connection
-# with transit VPC
-# Launches a spoke GW, and attach with transit VPC.
- 
+# Sample Aviatrix terraform configuration to create complete transit network solution
+# This configuration creates the following:
+# 1. create cloud account on Aviatrix controller, 
+# 2. launches transit VPC and Gateway
+# 3. creates VGW connection with transit VPC
+# 4. launches a spoke GW, and attach with transit VPC.
  
  
 # Create transit VPC
@@ -16,7 +17,7 @@ resource "aviatrix_transit_vpc" "test_transit_gw" {
   vpc_id = "${var.static_transit_vpc_id}"
   vpc_reg = "${var.region}"
   vpc_size = "t2.micro"
-  vpc_net = "${var.static_transit_vpc_net}"
+  subnet = "${var.static_transit_vpc_net}"
   ha_subnet = "${var.static_transit_vpc_net2}"
 }
  
@@ -42,7 +43,7 @@ resource "aviatrix_spoke_vpc" "test_spoke" {
   vpc_id = "${element(aws_vpc.spoke-VPC.*.id,count.index)}"
   vpc_reg = "${var.region}"
   vpc_size = "t2.micro"
-  vpc_net = "${element(aws_subnet.spoke-VPC-public.*.cidr_block,count.index)}"
+  subnet = "${element(aws_subnet.spoke-VPC-public.*.cidr_block,count.index)}"
   ha_subnet = "${element(aws_subnet.spoke-VPC-public.*.cidr_block,count.index)}"
   transit_gw = "${var.static_transit_gateway_name}"
   depends_on = ["aviatrix_vgw_conn.test_vgw_conn","aviatrix_transit_vpc.test_transit_gw"]
