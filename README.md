@@ -9,7 +9,7 @@ Transit VPC ID  (example: vpc-90cd28f8)
 VGW ID (example: vgw-8dc54bbd)
 ```
 
-User Parameters
+User parameters
 ---------------
  Persistent variable values are assign within this file named "terraform.tfvars" and automatically loads them to populate variables. 
 ```sh
