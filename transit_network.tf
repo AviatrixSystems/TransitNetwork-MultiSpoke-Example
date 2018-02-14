@@ -17,8 +17,8 @@ resource "aviatrix_transit_vpc" "test_transit_gw" {
   vpc_id = "${var.static_transit_vpc_id}"
   vpc_reg = "${var.region}"
   vpc_size = "t2.micro"
-  subnet = "${var.static_transit_vpc_net}"
-  ha_subnet = "${var.static_transit_vpc_net2}"
+  subnet = "${var.static_transit_subnet}"
+  ha_subnet = "${var.static_transit_ha_subnet}"
 }
  
 # Create VGW connection with transit VPC.

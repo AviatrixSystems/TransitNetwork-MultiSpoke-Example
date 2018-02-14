@@ -9,8 +9,8 @@ variable "controller_ip" {}
 variable "controller_username" {}
 variable "controller_password" {}
 variable "static_transit_vpc_id" {}
-variable "static_transit_vpc_net" {}
-variable "static_transit_vpc_net2" {}
+variable "static_transit_subnet" {}
+variable "static_transit_ha_subnet" {}
 variable "static_transit_gateway_name" {}
 variable "region" {}
 variable "spoke_gateways" {}
