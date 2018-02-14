@@ -11,6 +11,7 @@ VGW ID (example: vgw-8dc54bbd)
 
 User parameters
 ---------------
+
  Persistent variable values are assign within this file named "terraform.tfvars" and automatically loads them to populate variables. 
 ```sh
 # pre-defined in AWS
@@ -19,6 +20,10 @@ vgw_id = "vgw-69a50177"
 static_transit_vpc_id = "vpc-bfc17cc6"
 static_transit_subnet = "10.170.0.0/28"
 static_transit_ha_subnet = "10.170.0.16/28"
+```
+ variable to build multiple spoke gateways
+```sh
+spoke_gateways = 1
 ```
 
 Initialize terraform
