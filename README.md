@@ -4,13 +4,13 @@ A Terraform example to create multiple Spoke VPCs Transit Network
 Description
 ```sh
 * Deploy transit network with multiple spoke gateways with HA enabled in single region.
-* Under this file \"terraform.tfvars\" a variable named \"spoke_gateways\" will dictate total number of spoke gateways.
+* A variable named [spoke_gateways] will dictate the total number of spoke gateways.
 * User will provide username and password for controller access.
 * Create a new cloud account on Aviatrix controller.
 * Assumes the VGW and transit VPC were created in advance. 
 * Launches transit gateways with HA enabled.
 * Create a VGW connection with transit VPC. 
-* Create AWS VPCs based on \"spoke_gateways\" variable.
+* Create AWS VPCs based on [spoke_gateways] variable.
 * Launches multiple aviatrix spoke gateways with HA enabled and attach to transit VPC.   
 ```
 [Click here for AWS Global Transit Network Workflow Instructions](http://docs.aviatrix.com/HowTos/transitvpc_workflow.html)
@@ -28,7 +28,7 @@ User parameters
 
  Persistent variable values are assign within this file named "terraform.tfvars" and automatically loads them to populate variables. 
 ```sh
-# pre-defined in AWS
+# sample and pre-defined in AWS
 region = "us-west-2"
 vgw_id = "vgw-69a50177"
 static_transit_vpc_id = "vpc-bfc17cc6"
