@@ -1,9 +1,8 @@
 # Aviatrix TransitNetwork-MultiSpoke-Example
 A Terraform example to create multiple Spoke VPCs Transit Network
-[Click here for AWS Global Transit Network Workflow Instructions] (http://docs.aviatrix.com/HowTos/transitvpc_workflow.html)
+[Click here for AWS Global Transit Network Workflow Instructions](http://docs.aviatrix.com/HowTos/transitvpc_workflow.html)
 
 Description
-
 ```sh
 * Deploy transit network with multiple spoke gateways with HA enabled in single region.
 * Under this file "terraform.tfvars" a variable named "spoke_gateways" will dictate total number of spoke gateways.
