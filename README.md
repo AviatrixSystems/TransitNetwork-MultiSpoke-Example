@@ -65,4 +65,6 @@ How to cleanup all resources
 ----------------------------
 ```sh
 $ terraform destroy -force
+
+NOTE: It will delete all spoke gateways before AWS cleanup.
 ```

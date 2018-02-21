@@ -1,8 +1,8 @@
 ## Aviatrix account information
-account_name ="aws-acct-name"
-controller_ip = "x.y.z.w"
-controller_username = "username"
-controller_password = "secretpassword"
+avx_account_name ="aws-acct-name"
+avx_controller_ip = "x.y.z.w"
+avx_controller_username = "username"
+avx_controller_password = "secretpassword"
 
 ## AWS Account information
 aws_account_number = "123456789102"
@@ -16,12 +16,17 @@ aws_role_ec2 = "arn:aws:iam::123456789102:role/aviatrix-role-ec2"
 ## modify spoke_gateways to build multiple spoke GWs
 #
 spoke_gateways = 1
+spoke_prefix = "10.1"
+spoke_region = "us-east-2"
 vgw_connection_name = "vgw_bgp_s2c_connection"
 bgp_local_as = 6501
 static_transit_gateway_name = "transit-static-gw"
+transit_ec2_instance = "t2.micro"
+spoke_ec2_instance = "t2.micro"
+
 # pre-defined in AWS
-region = "us-west-2"
 vgw_id = "vgw-69a50177"
-static_transit_vpc_id = "vpc-bfc17cc6"
-static_transit_subnet = "10.170.0.0/28"
-static_transit_ha_subnet = "10.170.0.16/28"
+static_transit_region = "us-west-1"
+static_transit_vpc_id = "vpc-4d73882a"
+static_transit_public_subnet = "172.23.0.0/24"
+static_transit_public_ha_subnet = "172.23.0.0/24"
