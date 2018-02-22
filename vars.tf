@@ -1,10 +1,10 @@
 variable "aws_account_number" {}
 variable "aws_access_key" {}
 variable "aws_secret_key" {}
-variable "account_name" {}
 variable "vgw_id" {}
 variable "vgw_connection_name" {}
 variable "bgp_local_as" {}
+variable "avx_account_name" {}
 variable "avx_controller_ip" {}
 variable "avx_controller_username" {}
 variable "avx_controller_password" {}

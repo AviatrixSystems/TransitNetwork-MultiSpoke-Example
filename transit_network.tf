@@ -18,7 +18,7 @@
  
 resource "aviatrix_transit_vpc" "test_transit_gw" {
   cloud_type = 1
-  account_name = "${var.account_name}"
+  account_name = "${var.avx_account_name}"
   gw_name= "${var.static_transit_gateway_name}"
   vpc_id = "${var.static_transit_vpc_id}"
   vpc_reg = "${var.static_transit_region}"
@@ -43,7 +43,7 @@ resource "aviatrix_vgw_conn" "test_vgw_conn" {
 
 resource "aviatrix_spoke_vpc" "test_spoke" {
   count = "${var.spoke_gateways}"
-  account_name = "${var.account_name}"
+  account_name = "${var.avx_account_name}"
   cloud_type = 1
   gw_name= "myspoke-GW-${count.index}"
   vpc_id = "${element(aws_vpc.spoke-VPC.*.id,count.index)}"
