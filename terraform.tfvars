@@ -25,7 +25,7 @@ transit_ec2_instance = "t2.micro"
 spoke_ec2_instance = "t2.micro"
 
 # pre-defined in AWS
-vgw_id = "vgw-69a50177"
+vgw_id = "vgw-08005b4d"
 static_transit_region = "us-west-1"
 static_transit_vpc_id = "vpc-4d73882a"
 static_transit_public_subnet = "172.23.0.0/24"

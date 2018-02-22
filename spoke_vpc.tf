@@ -24,7 +24,7 @@ resource "aws_subnet" "spoke-VPC-public" {
     }
     timeouts {
     }
-    depends_on = ["aws_vpc.spoke-VPC","aviatrix_vgw_conn.test_vgw_conn"]
+    depends_on = ["aviatrix_vgw_conn.test_vgw_conn"]
 }
 
 # AWS Internet GW
@@ -37,7 +37,7 @@ resource "aws_internet_gateway" "spoke-VPC-gw" {
     }
     timeouts {
     }
-    depends_on = ["aws_vpc.spoke-VPC","aviatrix_vgw_conn.test_vgw_conn"]
+    depends_on = ["aviatrix_vgw_conn.test_vgw_conn"]
 }
 
 # AWS route tables
@@ -48,11 +48,13 @@ resource "aws_route_table" "spoke-VPC-route" {
         cidr_block = "0.0.0.0/0"
         gateway_id = "${element(aws_internet_gateway.spoke-VPC-gw.*.id,count.index)}"
     }
-
     tags {
         Name = "spoke-VPC-route-${count.index}"
     }
-    depends_on = ["aws_vpc.spoke-VPC","aws_internet_gateway.spoke-VPC-gw","aviatrix_vgw_conn.test_vgw_conn"]
+    lifecycle {
+        ignore_changes=["route"]
+    }
+    depends_on = ["aviatrix_vgw_conn.test_vgw_conn"]
 }
 
 # AWS route associations public
