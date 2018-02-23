@@ -5,9 +5,8 @@ Description
 -----------
 ```sh
 * Deploy transit network with multiple spoke gateways with HA enabled in single region.
+* User will provide AWS account and Aviatrix controller access.
 * A variable named [spoke_gateways] will dictate the total number of spoke gateways.
-* User will provide username and password for controller access.
-* Create a new cloud account on Aviatrix controller for AWS cloud type.
 * Assumes the VGW and transit VPC were created in advance. 
 * Launches transit gateways with HA enabled.
 * Create a VGW connection with transit VPC. 

@@ -7,7 +7,7 @@ resource "aws_vpc" "spoke-VPC" {
     enable_dns_hostnames = "true"
     enable_classiclink = "false"
     tags {
-        Name = "spoke-VPC-${count.index}"
+        Name = "spoke-VPC-${count.index}-${var.spoke_region}"
     }
     depends_on = ["aviatrix_vgw_conn.test_vgw_conn"]
 }
@@ -20,7 +20,7 @@ resource "aws_subnet" "spoke-VPC-public" {
     map_public_ip_on_launch = "true"
 
     tags {
-        Name = "spoke-VPC-public-${count.index}"
+        Name = "spoke-VPC-public-${count.index}-${var.spoke_region}"
     }
     timeouts {
     }
@@ -33,7 +33,7 @@ resource "aws_internet_gateway" "spoke-VPC-gw" {
     vpc_id = "${element(aws_vpc.spoke-VPC.*.id,count.index)}"
 
     tags {
-        Name = "spoke-VPC-gw-${count.index}"
+        Name = "spoke-VPC-gw-${count.index}-${var.spoke_region}"
     }
     timeouts {
     }
@@ -49,7 +49,7 @@ resource "aws_route_table" "spoke-VPC-route" {
         gateway_id = "${element(aws_internet_gateway.spoke-VPC-gw.*.id,count.index)}"
     }
     tags {
-        Name = "spoke-VPC-route-${count.index}"
+        Name = "spoke-VPC-route-${count.index}-${var.spoke_region}-${var.spoke_region}"
     }
     lifecycle {
         ignore_changes=["route"]

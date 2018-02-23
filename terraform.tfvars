@@ -16,7 +16,7 @@ aws_role_ec2 = "arn:aws:iam::123456789102:role/aviatrix-role-ec2"
 ## modify spoke_gateways to build multiple spoke GWs
 #
 spoke_gateways = 1
-spoke_prefix = "10.1"
+spoke_prefix = "10.0"
 spoke_region = "us-east-2"
 vgw_connection_name = "vgw_bgp_s2c_connection"
 bgp_local_as = 6501
